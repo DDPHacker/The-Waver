@@ -15,6 +15,12 @@ public class Blade : MonoBehaviour {
     private float blockStayTime = 0;
     private int bladeIndex;
 
+    public void Initialize (int bladeIndex, int length, float blockStayTime) {
+        this.length = length;
+        this.blockStayTime = blockStayTime;
+        this.bladeIndex = bladeIndex;
+    }
+
     void Start () {
         _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         lastPosition = _gameManager._viveControllerManager.GetPosition (bladeIndex);
@@ -22,6 +28,10 @@ public class Blade : MonoBehaviour {
     }
 
     void Update () {
+        if (_gameManager._viveControllerManager.GetTriggerDown (bladeIndex)){
+            GetComponentInChildren<lightssaber> ().showBlade ();
+        }
+
         transform.position = _gameManager._viveControllerManager.GetPosition (bladeIndex);
         transform.forward = _gameManager._viveControllerManager.GetForward (bladeIndex);
 
@@ -54,11 +64,5 @@ public class Blade : MonoBehaviour {
         t2.GetComponent<Triangle>().Initialize(new Vector3[]{a, bb, b});
         bladeTriangles.Enqueue (t1);
         bladeTriangles.Enqueue (t2);
-    }
-
-    public void Initialize (int bladeIndex, int length, float blockStayTime) {
-        this.length = length;
-        this.blockStayTime = blockStayTime;
-        this.bladeIndex = bladeIndex;
     }
 }

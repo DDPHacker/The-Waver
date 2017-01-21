@@ -17,17 +17,17 @@ public class lightssaber : MonoBehaviour {
 		lineRend = GetComponent<LineRenderer> ();
 		endPosExtendedPos = endPos.localPosition;
 	}
+
+    public void showBlade(){
+        if (on) {
+            on = false;
+        } else {
+            on = true;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		//turn lightsaber off and on
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			if (on) {
-				on = false;
-			} else {
-				on = true;
-			}
-		}
 		//extend the line
 		if (on) {
 			endPos.localPosition = Vector3.Lerp (endPos.localPosition, endPosExtendedPos, Time.deltaTime * 5f);
