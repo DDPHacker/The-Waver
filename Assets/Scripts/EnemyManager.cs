@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager {
+public class EnemyManager : MonoBehaviour {
 
-	EnemyManager() {
+	public EnemyManager() {
 
 	}
 
 }
-

@@ -19,12 +19,20 @@ public class ViveControllerInput : MonoBehaviour {
 		return Controller.GetAxis();
 	}
 
+	public bool GetViveTrigger() {
+		return Controller.GetHairTrigger();
+	}
+
 	public bool GetViveTriggerDown() {
 		return Controller.GetHairTriggerDown();
 	}
-	 
+ 
 	public bool GetViveTriggerUp() {
 		return Controller.GetHairTriggerUp();
+	}
+
+	public bool GetViveGrip() {
+		return Controller.GetPress(SteamVR_Controller.ButtonMask.Grip);
 	}
 
 	public bool GetViveGripDown() {
@@ -35,8 +43,4 @@ public class ViveControllerInput : MonoBehaviour {
 		return Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip);
 	}
 
-	// Update is called once per frame
-	void Update () {
-		// Update
-	}
 }

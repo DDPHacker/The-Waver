@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
 	void Awake() {
 		// Awake
-		gameState = GAME_STATE.GAME_STATE_READY;
+		gameState = (int)GAME_STATE.GAME_STATE_READY;
 	}
 
 	// Use this for initialization
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
+
 	}
 
 }
