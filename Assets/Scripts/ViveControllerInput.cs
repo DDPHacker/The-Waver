@@ -5,7 +5,9 @@ public class ViveControllerInput : MonoBehaviour {
     private SteamVR_TrackedObject trackedObj;
 
     private SteamVR_Controller.Device Controller {
-        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+        get {
+            return (int)trackedObj.index == -1 ? null: SteamVR_Controller.Input((int)trackedObj.index);
+        }
     }
 
     // Awake
@@ -18,32 +20,36 @@ public class ViveControllerInput : MonoBehaviour {
 
     }
 
+    public bool ControllerAccessiable() {
+        return Controller != null;
+    }
+
     public Vector2 GetViveAxis() {
-        return Controller.GetAxis();
+        return ControllerAccessiable() ? Controller.GetAxis() : new Vector2(0, 0);
     }
 
     public bool GetViveTrigger() {
-        return Controller.GetHairTrigger();
+        return ControllerAccessiable() && Controller.GetHairTrigger();
     }
 
     public bool GetViveTriggerDown() {
-        return Controller.GetHairTriggerDown();
+        return ControllerAccessiable() && Controller.GetHairTriggerDown();
     }
 
     public bool GetViveTriggerUp() {
-        return Controller.GetHairTriggerUp();
+        return ControllerAccessiable() && Controller.GetHairTriggerUp();
     }
 
     public bool GetViveGrip() {
-        return Controller.GetPress(SteamVR_Controller.ButtonMask.Grip);
+        return ControllerAccessiable() && Controller.GetPress(SteamVR_Controller.ButtonMask.Grip);
     }
 
     public bool GetViveGripDown() {
-        return Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip);
+        return ControllerAccessiable() && Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip);
     }
 
     public bool GetViveGripUp() {
-        return Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip);
+        return ControllerAccessiable() && Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip);
     }
 
 }
