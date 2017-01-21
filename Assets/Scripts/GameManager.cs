@@ -74,8 +74,8 @@ public class GameManager : MonoBehaviour {
                     // PlayerManager.ShowSword();
                     Debug.Log("Show sword!!!!!!!!!");
                 }
-                Debug.Log("Position: " + _viveControllerManager.GetPosition(0).ToString());
-                Debug.Log("Orientation: " + _viveControllerManager.GetOrientation(0).ToString());
+                Debug.Log("Position: " + _viveControllerManager.GetPosition(0));
+                Debug.Log("Orientation: " + _viveControllerManager.GetForward(0));
                 break;
             case GAME_STATE.GAME_STATE_PLAY:
                 break;

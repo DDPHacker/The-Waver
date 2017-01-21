@@ -28,8 +28,8 @@ public class ViveControllerInput : MonoBehaviour {
         return trackedObj.transform.position;
     }
 
-    public Vector3 GetViveOrientation() {
-        return trackedObj.transform.rotation.eulerAngles;
+    public Vector3 GetViveForward() {
+        return trackedObj.transform.forward;
     }
 
     public Vector2 GetViveAxis() {
