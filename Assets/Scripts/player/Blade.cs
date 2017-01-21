@@ -53,7 +53,7 @@ public class Blade : MonoBehaviour {
         bladeTriangles.Enqueue (t2);
     }
 
-    void Initialize (int bladeIndex, int length, float blockStayTime) {
+    public void Initialize (int bladeIndex, int length, float blockStayTime) {
         this.length = length;
         this.blockStayTime = blockStayTime;
         this.bladeIndex = bladeIndex;

@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour {
     void Start() {
         _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         blade1 = Instantiate (BladePrefab);
+        blade1.GetComponent<Blade> ().Initialize (0, 5, 1);
     }
 
     void Update() {
