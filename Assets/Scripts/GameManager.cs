@@ -1,37 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	enum GAME_STATE {
-		GAME_STATE_READY,
-		GAME_STATE_SHOW_SWORD,
-		GAME_STATE_PLAY,
-		GAME_STATE_DIE,
-	};
+    enum GAME_STATE {
+        GAME_STATE_READY,
+        GAME_STATE_SHOW_SWORD,
+        GAME_STATE_PLAY,
+        GAME_STATE_DIE,
+    };
 
-	public int gameState;
-	public AudioManager audioManager;
-	public PlayerManager playerManager;
-	public EnemyManager enemyManager;
-	public ViveControllerInput viveControllerInput;
+    private int gameState;
+    private AudioManager _audioManager;
+    private PlayerManager _playerManager;
+    private EnemyManager _enemyManager;
+    private ViveControllerManager _viveControllerManager;
 
-	void Awake() {
-		// Awake
-		gameState = (int)GAME_STATE.GAME_STATE_READY;
-	}
+    // Awake
+    void Awake() {
+        gameState = (int)GAME_STATE.GAME_STATE_READY;
+    }
 
-	// Use this for initialization
-	void Start() {
-		audioManager = new AudioManager();
-		playerManager = new PlayerManager();
-		enemyManager = new EnemyManager();
-	}
-	
-	// Update is called once per frame
-	void Update() {
+    // Use this for initialization
+    void Start() {
+        _audioManager = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioManager>();
+        _playerManager = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerManager>();
+        _enemyManager = GameObject.FindGameObjectWithTag("EnemyController").GetComponent<EnemyManager>();
+        _viveControllerManager = GameObject.FindGameObjectWithTag("ViveController").GetComponent<ViveControllerManager>();
+    }
 
-	}
+    // Update is called once per frame
+    void Update() {
+
+    }
 
 }

@@ -1,39 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Assertions;
-using System.Security.Cryptography.X509Certificates;
+﻿using UnityEngine;
 
 public class ViveControllerManager : MonoBehaviour {
 
-	public ViveControllerInput[] viveControllers;
+    public ViveControllerInput[] _viveControllers;
 
-	public Vector2 GetAxis(int index) {
-		return viveControllers[index].GetViveAxis();
-	}
+    // Use this for initialization
+    void Start() {
 
-	public bool GetTrigger(int index) {
-		return viveControllers[index].GetViveTrigger();
-	}
+    }
 
-	public bool GetTriggerDown(int index) {
-		return viveControllers[index].GetViveTriggerDown();
-	}
+    public Vector2 GetAxis(int index) {
+        return _viveControllers[index].GetViveAxis();
+    }
 
-	public bool GetTriggerUp(int index) {
-		return viveControllers[index].GetViveTriggerUp();
-	}
+    public bool GetTrigger(int index) {
+        return _viveControllers[index].GetViveTrigger();
+    }
 
-	public bool GetGrip(int index) {
-		return viveControllers[index].GetViveGrip();
-	}
+    public bool GetTriggerDown(int index) {
+        return _viveControllers[index].GetViveTriggerDown();
+    }
 
-	public bool GetGripDown(int index) {
-		return viveControllers[index].GetViveGripDown();	
-	}
+    public bool GetTriggerUp(int index) {
+        return _viveControllers[index].GetViveTriggerUp();
+    }
 
-	public bool GetGripUp(int index) {
-		return viveControllers[index].GetViveGripUp();
-	}
+    public bool GetGrip(int index) {
+        return _viveControllers[index].GetViveGrip();
+    }
+
+    public bool GetGripDown(int index) {
+        return _viveControllers[index].GetViveGripDown();
+    }
+
+    public bool GetGripUp(int index) {
+        return _viveControllers[index].GetViveGripUp();
+    }
 
 }

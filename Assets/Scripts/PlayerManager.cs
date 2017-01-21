@@ -1,11 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
 
-	public PlayerManager() {
+    private GameManager _gameManager;
 
-	}
+    // Awake
+    void Awake() {
+
+    }
+
+    // Use this for initialization
+    void Start() {
+        _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+    }
+
+    // Update is called once per frame
+    void Update() {
+
+    }
 
 }
