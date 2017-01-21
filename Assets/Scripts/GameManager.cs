@@ -12,10 +12,10 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public int _gameState;
 
-    private AudioManager _audioManager;
-    private PlayerManager _playerManager;
-    private EnemyManager _enemyManager;
-    private ViveControllerManager _viveControllerManager;
+    public AudioManager _audioManager;
+    public PlayerManager _playerManager;
+    public EnemyManager _enemyManager;
+    public ViveControllerManager _viveControllerManager;
 
     // Awake
     void Awake() {
