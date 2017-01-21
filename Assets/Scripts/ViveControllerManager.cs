@@ -9,6 +9,14 @@ public class ViveControllerManager : MonoBehaviour {
 
     }
 
+    public Vector3 GetPosition(int index) {
+        return _viveControllers[index].GetVivePosition();
+    }
+
+    public Vector3 GetOrientation(int index) {
+        return _viveControllers[index].GetViveOrientation();
+    }
+
     public Vector2 GetAxis(int index) {
         return _viveControllers[index].GetViveAxis();
     }

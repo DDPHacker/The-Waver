@@ -24,6 +24,14 @@ public class ViveControllerInput : MonoBehaviour {
         return Controller != null;
     }
 
+    public Vector3 GetVivePosition() {
+        return trackedObj.transform.position;
+    }
+
+    public Vector3 GetViveOrientation() {
+        return trackedObj.transform.rotation.eulerAngles;
+    }
+
     public Vector2 GetViveAxis() {
         return ControllerAccessiable() ? Controller.GetAxis() : new Vector2(0, 0);
     }

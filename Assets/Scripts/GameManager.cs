@@ -12,9 +12,16 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public int _gameState;
 
+    [HideInInspector]
     public AudioManager _audioManager;
+
+    [HideInInspector]
     public PlayerManager _playerManager;
+
+    [HideInInspector]
     public EnemyManager _enemyManager;
+
+    [HideInInspector]
     public ViveControllerManager _viveControllerManager;
 
     // Awake
@@ -67,6 +74,8 @@ public class GameManager : MonoBehaviour {
                     // PlayerManager.ShowSword();
                     Debug.Log("Show sword!!!!!!!!!");
                 }
+                Debug.Log("Position: " + _viveControllerManager.GetPosition(0).ToString());
+                Debug.Log("Orientation: " + _viveControllerManager.GetOrientation(0).ToString());
                 break;
             case GAME_STATE.GAME_STATE_PLAY:
                 break;
