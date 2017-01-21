@@ -1,8 +1,10 @@
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
+    public GameObject BladePrefab;
 
     private GameManager _gameManager;
+    private GameObject blade1;
 
     void Awake() {
 
@@ -10,6 +12,7 @@ public class PlayerManager : MonoBehaviour {
 
     void Start() {
         _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        blade1 = Instantiate (BladePrefab);
     }
 
     void Update() {
