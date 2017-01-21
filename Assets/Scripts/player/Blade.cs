@@ -10,24 +10,27 @@ public class Blade : MonoBehaviour {
 
     private Queue bladeTriangles = new Queue();
     private Vector3 lastPosition;
-    private Vector3 lastPointer;
+    private Vector3 lastForward;
     private int length = 0;
     private float blockStayTime = 0;
     private int bladeIndex;
 
     void Start () {
         _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        lastPosition = transform.position;
+        lastPosition = _gameManager._viveControllerManager.GetPosition (bladeIndex);
+        lastForward = _gameManager._viveControllerManager.GetForward (bladeIndex);
     }
 
     void Update () {
         transform.position = _gameManager._viveControllerManager.GetPosition (bladeIndex);
+        transform.forward = _gameManager._viveControllerManager.GetForward (bladeIndex);
 
         popOutdatedBladeTriangles ();
 
-        if (lastPosition != null && lastPointer != null)
-            pushNewBladeTriangles (lastPosition, lastPointer, transform.position , _gameManager._viveControllerManager.GetForward(bladeIndex));
+        if (lastPosition != null && lastForward != null)
+            pushNewBladeTriangles (lastPosition, lastForward, transform.position , transform.forward);
         lastPosition = transform.position;
+        lastForward = transform.forward;
     }
 
     private void popOutdatedBladeTriangles(){
