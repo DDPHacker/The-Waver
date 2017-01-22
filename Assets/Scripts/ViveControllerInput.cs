@@ -21,15 +21,15 @@ public class ViveControllerInput : MonoBehaviour {
     }
 
     public bool ControllerAccessiable() {
-        return Controller != null;
+        return trackedObj != null && Controller != null;
     }
 
     public Vector3 GetVivePosition() {
-        return trackedObj.transform.position;
+        return ControllerAccessiable() ? trackedObj.transform.position : new Vector3(0, -1000, 0);
     }
 
     public Vector3 GetViveForward() {
-        return trackedObj.transform.forward;
+        return ControllerAccessiable() ? trackedObj.transform.forward : new Vector3(0, 1, 0);
     }
 
     public Vector2 GetViveAxis() {
