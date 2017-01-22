@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
-    // public AudioSource LaserClashSource;
-    // public AudioSource[] LaserShootSource;
-    // public AudioSource ExplosionSource;
+    public AudioClip _readyBGMClip;
+    public AudioClip _playBGMClip;
+    public AudioClip _dieBGMClip;
+    public AudioSource _audioSource;
 
     public static AudioManager _instance;
 

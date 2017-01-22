@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour {
     public float speed;
     public float randomScale;
 
+    public AudioClip[] _shootRayClips;
+    public AudioSource _enemyAudioSource;
+
     //void Start () {
     //    Vector3 playerPos = new Vector3 (0, 0, 0);
     //    StartCoroutine (Shoot (playerPos));
@@ -39,6 +42,11 @@ public class EnemyController : MonoBehaviour {
             newShot = Instantiate (shot, transform.position, shotRotation,
                 GameObject.FindGameObjectWithTag("Shots").GetComponent<Transform>());
             newShot.GetComponent<Shot> ().Initialize (-(newShot.transform.position - randomPos).normalized * speed);
+
+            int index = Random.Range(0, _shootRayClips.Length);
+            _enemyAudioSource.clip = _shootRayClips[index];
+            _enemyAudioSource.Play();
+
             yield return new WaitForSeconds (shotTime);
         }
     }
