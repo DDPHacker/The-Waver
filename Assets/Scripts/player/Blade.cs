@@ -14,11 +14,13 @@ public class Blade : MonoBehaviour {
     private int bladeIndex;
     private lightssaber[] sabers;
     private LightSaberSwitchAudioController saberSwitchAudioController;
+    private Color color;
 
-    public void Initialize(int bladeIndex, float length, float blockStayTime) {
+    public void Initialize(int bladeIndex, float length, float blockStayTime, Color color) {
         this.length = length;
         this.blockStayTime = blockStayTime;
         this.bladeIndex = bladeIndex;
+        this.color = color;
     }
 
     void Start() {
@@ -66,8 +68,8 @@ public class Blade : MonoBehaviour {
         Vector3 bb = b + bDirection * length;
 
         GameObject t1 = Instantiate(trianglePrefab);
-        t1.GetComponent<Triangle>().Initialize(new Vector3[]{a, aa, bb}, blockStayTime);
+        t1.GetComponent<Triangle>().Initialize(new Vector3[]{a, aa, bb}, blockStayTime, this.color);
         GameObject t2 = Instantiate(trianglePrefab);
-        t2.GetComponent<Triangle>().Initialize(new Vector3[]{bb, a, b}, blockStayTime);
+        t2.GetComponent<Triangle>().Initialize(new Vector3[]{bb, a, b}, blockStayTime, this.color);
     }
 }

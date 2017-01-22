@@ -24,9 +24,9 @@ public class PlayerManager : MonoBehaviour {
 
     void Start() {
         blade1 = Instantiate(BladePrefab);
-        blade1.GetComponent<Blade>().Initialize(0, bladeLength, 0.2f);
+        blade1.GetComponent<Blade>().Initialize(0, bladeLength, 0.2f, new Color(1f, 0.7f, 0.7f));
         blade2 = Instantiate (BladePrefab_2);
-        blade2.GetComponent<Blade>().Initialize(1, bladeLength, 0.2f);
+        blade2.GetComponent<Blade>().Initialize(1, bladeLength, 0.2f, new Color(0.7f, 0.7f, 1f));
     }
 
     void Update() {

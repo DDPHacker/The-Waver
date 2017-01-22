@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
     public GameObject shot;
-    public float speed = 1f;
-    public float randomScale = 0.5f;
+    public float speed;
+    public float randomScale;
 
     //void Start () {
     //    Vector3 playerPos = new Vector3 (0, 0, 0);
