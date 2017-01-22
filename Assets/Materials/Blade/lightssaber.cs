@@ -10,8 +10,8 @@ public class lightssaber : MonoBehaviour {
 	public Transform endPos;
 
 	private float textureOffset = 0f;
-	public bool on = false;
 	private Vector3 endPosExtendedPos;
+	public bool on_blade = false;
 
 	void Start () {
 		lineRend = GetComponent<LineRenderer> ();
@@ -19,24 +19,23 @@ public class lightssaber : MonoBehaviour {
 	}
 
     public void showBlade(){
-        if (on) {
-            on = false;
+		if (on_blade) {
+			on_blade = false;
         } else {
-            on = true;
+			on_blade = true;
         }
     }
-	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Space)){
-			if (on) {
-				on = false;
+			if (on_blade) {
+				on_blade = false;
 			} else {
-				on = true;
+				on_blade = true;
 			}
 		}
 		//extend the line
-		if (on) {
+		if (on_blade) {
 			endPos.localPosition = Vector3.Lerp (endPos.localPosition, endPosExtendedPos, Time.deltaTime * 5f);
 		}
 		//Hide line
