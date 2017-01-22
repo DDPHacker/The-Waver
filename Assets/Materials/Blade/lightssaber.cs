@@ -28,6 +28,13 @@ public class lightssaber : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown(KeyCode.Space)){
+			if (on) {
+				on = false;
+			} else {
+				on = true;
+			}
+		}
 		//extend the line
 		if (on) {
 			endPos.localPosition = Vector3.Lerp (endPos.localPosition, endPosExtendedPos, Time.deltaTime * 5f);
