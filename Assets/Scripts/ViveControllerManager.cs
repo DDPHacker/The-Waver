@@ -4,9 +4,17 @@ public class ViveControllerManager : MonoBehaviour {
 
     public ViveControllerInput[] _viveControllers;
 
-    // Use this for initialization
-    void Start() {
+    public static ViveControllerManager _instance;
 
+    public static ViveControllerManager Instance {
+        get { return _instance; }
+    }
+
+    // Awake
+    void Awake() {
+        if (_instance == null) {
+            _instance = this;
+        }
     }
 
     public Vector3 GetPosition(int index) {

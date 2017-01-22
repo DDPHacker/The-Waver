@@ -12,29 +12,22 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public int _gameState;
 
-    [HideInInspector]
-    public AudioManager _audioManager;
+    public static GameManager _instance;
 
-    [HideInInspector]
-    public PlayerManager _playerManager;
-
-    [HideInInspector]
-    public EnemyManager _enemyManager;
-
-    [HideInInspector]
-    public ViveControllerManager _viveControllerManager;
+    public static GameManager Instance {
+        get { return _instance; }
+    }
 
     // Awake
     void Awake() {
-        SetGameState(GAME_STATE.GAME_STATE_READY);
+        if (_instance == null) {
+            _instance = this;
+        }
     }
 
     // Use this for initialization
     void Start() {
-        _audioManager = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioManager>();
-        _playerManager = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerManager>();
-        _enemyManager = GameObject.FindGameObjectWithTag("EnemyController").GetComponent<EnemyManager>();
-        _viveControllerManager = GameObject.FindGameObjectWithTag("ViveController").GetComponent<ViveControllerManager>();
+        SetGameState(GAME_STATE.GAME_STATE_READY);
     }
 
     public void SetGameState(int newGameSate) {
@@ -70,12 +63,10 @@ public class GameManager : MonoBehaviour {
     void Update() {
         switch (_gameState) {
             case GAME_STATE.GAME_STATE_READY:
-                if (_viveControllerManager.GetTrigger()) {
+                if (ViveControllerManager.Instance.GetTrigger()) {
                     // PlayerManager.ShowSword();
                     Debug.Log("Show sword!!!!!!!!!");
                 }
-                Debug.Log("Position: " + _viveControllerManager.GetPosition(0));
-                Debug.Log("Orientation: " + _viveControllerManager.GetForward(0));
                 break;
             case GAME_STATE.GAME_STATE_PLAY:
                 break;
