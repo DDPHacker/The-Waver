@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour {
     public int enemyCounter;
     public float enemyTime;
     private int enemyNum;
+    private Vector3 playerPos;
     private IEnumerator spawn;
     private List<Vector3> enemiesPos = new List<Vector3> ();
 
@@ -30,12 +31,16 @@ public class EnemyManager : MonoBehaviour {
         Random.InitState (System.DateTime.UtcNow.Millisecond);
     }
 
-    public void StartSpawn (Vector3 playerPos, Vector2 inside, Vector2 outside, Vector2 floor) {
-        spawn = Spawn (playerPos, inside, outside, floor);
+    void Update () {
+        playerPos = ViveManager.Instance.GetHeadPosition ();
+    }
+
+    public void StartSpawn (Vector2 inside, Vector2 outside, Vector2 floor) {
+        spawn = Spawn (inside, outside, floor);
         StartCoroutine(spawn);
     }
 
-    IEnumerator Spawn(Vector3 playerPos, Vector2 inside, Vector2 outside, Vector2 floor) {
+    IEnumerator Spawn(Vector2 inside, Vector2 outside, Vector2 floor) {
         Vector3 enemyPos;
         Vector3 relativePos;
 		GameObject newEnemy;
