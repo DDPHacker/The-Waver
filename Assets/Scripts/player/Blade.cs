@@ -11,11 +11,11 @@ public class Blade : MonoBehaviour {
     private Queue bladeTriangles = new Queue();
     private Vector3 lastPosition;
     private Vector3 lastForward;
-    private int length = 0;
+    private float length = 0;
     private float blockStayTime = 0;
     private int bladeIndex;
 
-    public void Initialize (int bladeIndex, int length, float blockStayTime) {
+    public void Initialize (int bladeIndex, float length, float blockStayTime) {
         this.length = length;
         this.blockStayTime = blockStayTime;
         this.bladeIndex = bladeIndex;
