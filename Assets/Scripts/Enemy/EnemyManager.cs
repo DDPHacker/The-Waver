@@ -84,7 +84,6 @@ public class EnemyManager : MonoBehaviour {
             }
 
             relativePos = playerPos - enemyPos;
-            relativePos.y = 0;
             enemyRotation = Quaternion.LookRotation (relativePos);
 
             newEnemy = Instantiate(enemy, enemyPos, enemyRotation,

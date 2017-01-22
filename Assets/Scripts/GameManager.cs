@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour {
                 // AudioManager.Instance.PlayAudio("PLAY_BGM");
                 Vector2 inside = new Vector2 (3, 3);
                 Vector2 outside = new Vector2 (7, 7);
-                Vector2 floor = new Vector2 (0, 3);
+                Vector2 floor = new Vector2 (3, 6);
                 EnemyManager.Instance.StartSpawn(inside, outside, floor);
                 break;
             case GAME_STATE.GAME_STATE_DIE:
