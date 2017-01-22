@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,6 @@ public class Blade : MonoBehaviour {
 
     public GameObject trianglePrefab;
 
-    private Queue bladeTriangles = new Queue();
     private Vector3 lastPosition;
     private Vector3 lastForward;
     private float length = 0;
@@ -56,10 +55,8 @@ public class Blade : MonoBehaviour {
         Vector3 bb = b + bDirection * length;
 
         GameObject t1 = Instantiate(trianglePrefab);
-        t1.GetComponent<Triangle>().Initialize(new Vector3[]{a, aa, bb});
+        t1.GetComponent<Triangle>().Initialize(new Vector3[]{a, aa, bb}, blockStayTime);
         GameObject t2 = Instantiate(trianglePrefab);
-        t2.GetComponent<Triangle>().Initialize(new Vector3[]{a, bb, b});
-        bladeTriangles.Enqueue(t1);
-        bladeTriangles.Enqueue(t2);
+        t2.GetComponent<Triangle>().Initialize(new Vector3[]{a, bb, b}, blockStayTime);
     }
 }
