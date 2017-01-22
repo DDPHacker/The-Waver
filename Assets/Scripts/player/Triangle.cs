@@ -26,11 +26,12 @@ public class Triangle : MonoBehaviour {
 
     void Update(){
         if (Time.time - startTime > blockStayTime) {
-            Destroy (this);
+            Destroy (this.gameObject);
             return;
         }
         Color color = this.gameObject.GetComponent<MeshRenderer> ().material.color;
         color.a = (Time.time - startTime) / blockStayTime;
+        color.g = color.b = 0.7f;
         this.gameObject.GetComponent<MeshRenderer> ().material.color = color;
     }
 }
