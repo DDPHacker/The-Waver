@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour {
         Vector3 randomPos;
 
         yield return new WaitForSeconds (1);
-        //while (true) {
+        while (true) {
             randomPos = playerPos + new Vector3(
                 Random.Range(-randomScale, randomScale),
                 Random.Range(-2*randomScale, 0),
@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour {
             newShot = Instantiate (shot, transform.position, shotRotation,
                 GameObject.FindGameObjectWithTag("Shots").GetComponent<Transform>());
             newShot.GetComponent<Shot> ().Initialize (-(newShot.transform.position - randomPos).normalized * speed);
-        //  yield return new WaitForSeconds (2);
-        //}
+          yield return new WaitForSeconds (2);
+        }
     }
 }
