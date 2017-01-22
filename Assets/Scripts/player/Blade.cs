@@ -5,6 +5,7 @@ using UnityEngine;
 public class Blade : MonoBehaviour {
 
     public GameObject trianglePrefab;
+    public float audioAmplifySpeed;
 
     private Vector3 lastPosition;
     private Vector3 lastForward;
@@ -53,7 +54,7 @@ public class Blade : MonoBehaviour {
         float speed = Mathf.Abs(Vector3.Distance(mid_1, mid_2));
 
         if (has_blade && saberSwitchAudioController.ShouldPlayLightSaberSound()) {
-            saberSwitchAudioController.SetLightSaberVolume(0.2f + speed);
+            saberSwitchAudioController.SetLightSaberVolume(0.2f + speed * audioAmplifySpeed);
         }
 
         lastPosition = transform.position;

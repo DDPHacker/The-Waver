@@ -13,11 +13,13 @@ public class LightSaberSwitchAudioController : MonoBehaviour {
     }
 
     public void SetLightSaberVolume(float volume) {
+        if (!_lightSaberAudioSource.isPlaying)
+            PlayLightSaberSound();
         _lightSaberAudioSource.volume = Mathf.Clamp(volume, 0.0f, 1.0f);
     }
 
     public bool ShouldPlayLightSaberSound() {
-        return !_lightSaberAudioSource.isPlaying;
+        return !_lightSaberAudioSource.isPlaying || _lightSaberAudioSource.clip == _lightSaberClip;
     }
 
     public void PlaySwitchLightSaberSound() {
