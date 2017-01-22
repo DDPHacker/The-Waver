@@ -6,7 +6,7 @@ public class EnemyManager : MonoBehaviour {
 
     public GameObject enemy;
     public int enemyCounter;
-    public float shotTime;
+    public float enemyTime;
     private int enemyNum;
     private IEnumerator spawn;
     private List<Vector3> enemiesPos = new List<Vector3> ();
@@ -48,7 +48,7 @@ public class EnemyManager : MonoBehaviour {
 
         while (true) {
             if (enemyNum >= enemyCounter) {
-                yield return new WaitForSeconds (shotTime + 2 * Random.value);
+                yield return new WaitForSeconds (enemyTime + 2 * Random.value);
                 continue;
             }
 
@@ -88,7 +88,7 @@ public class EnemyManager : MonoBehaviour {
             enemiesPos.Add (enemyPos);
             enemyNum++;
 
-            yield return new WaitForSeconds (2 + 2 * Random.value);
+            yield return new WaitForSeconds (enemyTime + 2 * Random.value);
         }
     }
 

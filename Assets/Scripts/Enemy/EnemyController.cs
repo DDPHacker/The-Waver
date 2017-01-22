@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
     public GameObject shot;
+    public float shotTime;
     public float speed;
     public float randomScale;
 
@@ -38,7 +39,7 @@ public class EnemyController : MonoBehaviour {
             newShot = Instantiate (shot, transform.position, shotRotation,
                 GameObject.FindGameObjectWithTag("Shots").GetComponent<Transform>());
             newShot.GetComponent<Shot> ().Initialize (-(newShot.transform.position - randomPos).normalized * speed);
-          yield return new WaitForSeconds (2);
+            yield return new WaitForSeconds (shotTime);
         }
     }
 }

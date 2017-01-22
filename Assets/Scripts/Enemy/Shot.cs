@@ -30,6 +30,11 @@ public class Shot : MonoBehaviour {
             GetComponent<Rigidbody>().rotation = Quaternion.LookRotation(newVelocity);
             hit = true;
         }
+
+        if (other.gameObject.tag == "enemy" && hit) {
+            Destroy (this.gameObject);
+            Destroy (other.gameObject);
+        }
     }
 
     void Update () {
