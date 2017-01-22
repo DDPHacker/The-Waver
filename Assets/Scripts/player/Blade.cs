@@ -15,12 +15,14 @@ public class Blade : MonoBehaviour {
     private lightssaber[] sabers;
     private LightSaberSwitchAudioController saberSwitchAudioController;
     private Color color;
+    private bool doubleBlade;
 
-    public void Initialize(int bladeIndex, float length, float blockStayTime, Color color) {
+    public void Initialize(int bladeIndex, float length, float blockStayTime, Color color, bool doubleBlade) {
         this.length = length;
         this.blockStayTime = blockStayTime;
         this.bladeIndex = bladeIndex;
         this.color = color;
+        this.doubleBlade = doubleBlade;
     }
 
     void Start() {
@@ -41,14 +43,11 @@ public class Blade : MonoBehaviour {
         transform.position = ViveManager.Instance.GetPosition(bladeIndex);
         transform.forward = ViveManager.Instance.GetForward(bladeIndex);
 
-        int count = 1;
-        bool has_blade = false;
-        foreach (lightssaber saber in sabers) {
-            if (saber.on_blade) {
-                pushNewBladeTriangles(lastPosition, lastForward * count, transform.position, transform.forward * count);
-                count = -1;
-                has_blade = true;
-            }
+        bool has_blade = sabers[0].on_blade;
+        if (has_blade) {
+            pushNewBladeTriangles(lastPosition, lastForward, transform.position, transform.forward);
+            if (doubleBlade) 
+                pushNewBladeTriangles(lastPosition, -lastForward, transform.position, -transform.forward);
         }
 
         Vector3 mid_1 = lastPosition + lastForward * length / 2;
