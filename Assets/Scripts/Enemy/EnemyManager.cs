@@ -6,6 +6,7 @@ public class EnemyManager : MonoBehaviour {
 
     public GameObject enemy;
     public int enemyCounter;
+    public float shotTime;
     private int enemyNum;
     private IEnumerator spawn;
     private List<Vector3> enemiesPos = new List<Vector3> ();
@@ -43,11 +44,11 @@ public class EnemyManager : MonoBehaviour {
         int signZ;
         float height;
 
-        yield return new WaitForSeconds (3 + 2 * Random.value);
+        yield return new WaitForSeconds (1 + 2 * Random.value);
 
         while (true) {
             if (enemyNum >= enemyCounter) {
-                yield return new WaitForSeconds (2 + 2 * Random.value);
+                yield return new WaitForSeconds (shotTime + 2 * Random.value);
                 continue;
             }
 
