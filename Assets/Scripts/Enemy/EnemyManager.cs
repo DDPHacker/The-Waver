@@ -92,17 +92,21 @@ public class EnemyManager : MonoBehaviour {
         }
     }
 
-    public Vector3 FindEnemy (Vector3 position, Vector3 direction1, Vector3 direction2) {
+    public Vector3 FindEnemyDirection (Vector3 position, Vector3 direction1, Vector3 direction2) {
         Vector3 enemyDirection;
+        List<Vector3> enemyDirections = new List<Vector3>();
         foreach(Vector3 enemyPos in enemiesPos) {
             enemyDirection = enemyPos - position;
             if (Vector3.Dot (enemyDirection, direction1) >= 0 &&
                Vector3.Dot (enemyDirection, direction2) >= 0) {
                 if (Vector3.Dot (Vector3.Cross (enemyDirection, direction1), Vector3.Cross (enemyDirection, direction2)) <= 0)
-                    return enemyPos;
+                    enemyDirections.Add (enemyDirection);
             }
         }
-        return position;
+        return enemyDirections[(int)(Random.value * (enemyDirections.Count - 0.000001))].normalized;
+        Vector3 ranPosition = Random.value * direction1 + Random.value * direction2
+            + (Random.value * 2 - 1) * Vector3.Cross (direction1, direction2).normalized;
+        return ranPosition.normalized;
 	}
 
     void DestroyEnemies () {

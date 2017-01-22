@@ -11,7 +11,6 @@ public class Shot : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        Debug.LogError(other.gameObject.tag);
         if (other.gameObject.tag == "blade" && !hit) {
             GameObject blade = other.gameObject;
             Vector3[] vertices = blade.GetComponent<MeshFilter> ().mesh.vertices;
@@ -24,8 +23,9 @@ public class Shot : MonoBehaviour {
             Vector3 prep = Vector3.Cross (side1, side2).normalized;
             if (Vector3.Dot (GetComponent<Rigidbody> ().velocity, prep) > 0)
                 prep = -prep;
-            Vector3 newVelocity = Random.value * swipeDirection + Random.value * prep
-                                  + (Random.value * 2 - 1) * Vector3.Cross (swipeDirection, prep).normalized;
+            Vector3 enemyDirection = EnemyManager.Instance.FindEnemyDirection (transform.position, prep, swipeDirection);
+
+            Vector3 newVelocity = enemyDirection * Vector3.Magnitude(GetComponent<Rigidbody> ().velocity);
             GetComponent<Rigidbody> ().velocity = newVelocity;
             GetComponent<Rigidbody>().rotation = Quaternion.LookRotation(newVelocity);
             hit = true;
