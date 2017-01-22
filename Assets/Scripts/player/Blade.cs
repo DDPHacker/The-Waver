@@ -38,17 +38,6 @@ public class Blade : MonoBehaviour {
         lastForward = transform.forward;
     }
 
-    private void popOutdatedBladeTriangles() {
-        while (bladeTriangles.Count > 0) {
-            GameObject triangle = (GameObject)bladeTriangles.Peek ();
-            if (Time.time - triangle.GetComponent<Triangle>().startTime < blockStayTime)
-                break;
-
-            Destroy((GameObject)bladeTriangles.Dequeue());
-            Destroy((GameObject)bladeTriangles.Dequeue());
-        }
-    }
-
     private void pushNewBladeTriangles(Vector3 a, Vector3 aDirection, Vector3 b, Vector3 bDirection) {
         Vector3 aa = a + aDirection * length;
         Vector3 bb = b + bDirection * length;
