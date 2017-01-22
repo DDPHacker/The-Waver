@@ -10,7 +10,7 @@ public class lightssaber : MonoBehaviour {
 	public Transform endPos;
 
 	private float textureOffset = 0f;
-	private bool on = true;
+	public bool on = false;
 	private Vector3 endPosExtendedPos;
 
 	void Start () {
