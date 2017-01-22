@@ -13,6 +13,7 @@ public class Triangle : MonoBehaviour {
     }
 
     public void Initialize(Vector3[] vertices){
+        transform.position = new Vector3 (0, 0, 0);
         Mesh mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         GetComponent<MeshCollider>().sharedMesh = mesh;
