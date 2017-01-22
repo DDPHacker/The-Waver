@@ -30,8 +30,8 @@ public class Triangle : MonoBehaviour {
             return;
         }
         Color color = this.gameObject.GetComponent<MeshRenderer> ().material.color;
-        color.a = (Time.time - startTime) / blockStayTime;
-        color.g = color.b = 0.7f;
+        color.a = 1 - (Time.time - startTime) / blockStayTime;
+        color.g = color.b = 1f - (Time.time - startTime) * 0.3f / blockStayTime;
         this.gameObject.GetComponent<MeshRenderer> ().material.color = color;
     }
 }
