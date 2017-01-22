@@ -24,16 +24,10 @@ public class EnemyManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         enemyNum = 0;
-        Random.InitState ((int)(Time.time*100));
-
-        Vector3 playerPos = new Vector3 (0, 0, 0);
-        Vector2 inside = new Vector2 (3, 3);
-        Vector2 outside = new Vector2 (7, 7);
-        Vector2 floor = new Vector2 (0, 3);
-        StartSpawn (playerPos, inside, outside, floor);
+        Random.InitState (System.DateTime.UtcNow.Millisecond);
     }
 
-    void StartSpawn (Vector3 playerPos, Vector2 inside, Vector2 outside, Vector2 floor) {
+    public void StartSpawn (Vector3 playerPos, Vector2 inside, Vector2 outside, Vector2 floor) {
         spawn = Spawn (playerPos, inside, outside, floor);
         StartCoroutine(spawn);
     }

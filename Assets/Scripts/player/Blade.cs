@@ -11,6 +11,8 @@ public class Blade : MonoBehaviour {
     private float length = 0;
     private float blockStayTime = 0;
     private int bladeIndex;
+    private lightssaber[] sabers;
+    private LightSaberSwitchAudioController saberSwitchAudioController;
 
     public void Initialize(int bladeIndex, float length, float blockStayTime) {
         this.length = length;
@@ -21,21 +23,38 @@ public class Blade : MonoBehaviour {
     void Start() {
         lastPosition = ViveManager.Instance.GetPosition(bladeIndex);
         lastForward = ViveManager.Instance.GetForward(bladeIndex);
+        sabers = GetComponentsInChildren<lightssaber>();
+        saberSwitchAudioController = GetComponent<LightSaberSwitchAudioController>();
     }
 
     void Update() {
         if (ViveManager.Instance.GetTriggerDown(bladeIndex)) {
-            lightssaber[] sabers = GetComponentsInChildren<lightssaber>();
             foreach (lightssaber saber in sabers) {
                 saber.ShowBlade();
             }
+            saberSwitchAudioController.PlaySwitchLightSaberSound();
         }
 
         transform.position = ViveManager.Instance.GetPosition(bladeIndex);
         transform.forward = ViveManager.Instance.GetForward(bladeIndex);
 
-        if (GetComponentInChildren<lightssaber>().on_blade)
-            pushNewBladeTriangles(lastPosition, lastForward, transform.position , transform.forward);
+        int count = 1;
+        bool has_blade = false;
+        foreach (lightssaber saber in sabers) {
+            if (saber.on_blade) {
+                pushNewBladeTriangles(lastPosition, lastForward * count, transform.position, transform.forward * count);
+                count = -1;
+                has_blade = true;
+            }
+        }
+
+        Vector3 mid_1 = lastPosition + lastForward * length / 2;
+        Vector3 mid_2 = transform.position + transform.forward * length / 2;
+        float speed = Mathf.Abs(Vector3.Distance(mid_1, mid_2));
+
+        if (has_blade && saberSwitchAudioController.ShouldPlayLightSaberSound()) {
+            saberSwitchAudioController.SetLightSaberVolume(0.2f + speed);
+        }
 
         lastPosition = transform.position;
         lastForward = transform.forward;

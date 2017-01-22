@@ -3,6 +3,7 @@
 public class ViveManager : MonoBehaviour {
 
     public ViveController[] _viveControllers;
+    public GameObject headCamera;
 
     public static ViveManager _instance;
 
@@ -15,6 +16,10 @@ public class ViveManager : MonoBehaviour {
         if (_instance == null) {
             _instance = this;
         }
+    }
+
+    public Vector3 GetHeadPosition() {
+        return headCamera.transform.position;
     }
 
     public Vector3 GetPosition(int index) {
