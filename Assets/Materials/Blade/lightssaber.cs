@@ -9,9 +9,9 @@ public class lightssaber : MonoBehaviour {
 	public Transform startPos;
 	public Transform endPos;
 
-	public bool on_blade = true;
 	private float textureOffset = 0f;
 	private Vector3 endPosExtendedPos;
+	public bool on_blade = false;
 
 	void Start () {
 		lineRend = GetComponent<LineRenderer> ();
