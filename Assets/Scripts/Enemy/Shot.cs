@@ -43,6 +43,7 @@ public class Shot : MonoBehaviour {
         if (other.gameObject.tag == "Enemy" && hit) {
             Destroy (this.gameObject);
             Destroy (other.gameObject);
+            EnemyManager.Instance.DestroyEnemy ();
         }
     }
 

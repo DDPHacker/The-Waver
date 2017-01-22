@@ -119,11 +119,16 @@ public class EnemyManager : MonoBehaviour {
         Transform enemies = GameObject.FindGameObjectWithTag ("Enemies").GetComponent<Transform> ();
         foreach (Transform child in enemies) {
             Destroy (child.gameObject);
+            enemyNum--;
         }
     }
 
     void StopSpawn () {
         StopCoroutine (spawn);
         DestroyEnemies ();
+    }
+
+    public void DestroyEnemy() {
+        enemyNum--;
     }
 }
