@@ -3,11 +3,9 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour {
 
     public GameObject BladePrefab;
-<<<<<<< HEAD
 	public GameObject BladePrefab_2;
-=======
     public float bladeLength;
->>>>>>> dc5451adce169634495beb25cd0e248bb751c752
+
 
     private GameObject blade1;
 	private GameObject blade2;
