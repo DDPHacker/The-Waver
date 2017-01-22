@@ -18,22 +18,16 @@ public class lightssaber : MonoBehaviour {
 		endPosExtendedPos = endPos.localPosition;
 	}
 
-    public void showBlade(){
+    public void ShowBlade(){
 		if (on_blade) {
 			on_blade = false;
         } else {
 			on_blade = true;
         }
     }
+
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space)){
-			if (on_blade) {
-				on_blade = false;
-			} else {
-				on_blade = true;
-			}
-		}
 		//extend the line
 		if (on_blade) {
 			endPos.localPosition = Vector3.Lerp (endPos.localPosition, endPosExtendedPos, Time.deltaTime * 5f);
@@ -49,9 +43,9 @@ public class lightssaber : MonoBehaviour {
 
 		//pan texture
 		textureOffset -= Time.deltaTime*2f;
-		if(textureOffset < -10f){
+		if (textureOffset < -10f) {
 			textureOffset += 10f;
-	}
+        }
 		lineRend.sharedMaterials [1].SetTextureOffset ("_MainTex",new Vector2(textureOffset,0f));
 	}
 }

@@ -24,8 +24,11 @@ public class Blade : MonoBehaviour {
     }
 
     void Update() {
-        if (ViveControllerManager.Instance.GetTriggerDown(bladeIndex)){
-            GetComponentInChildren<lightssaber>().showBlade();
+        if (ViveControllerManager.Instance.GetTriggerDown(bladeIndex)) {
+            lightssaber[] sabers = GetComponentsInChildren<lightssaber>();
+            foreach (lightssaber saber in sabers) {
+                saber.ShowBlade();
+            }
         }
 
         transform.position = ViveControllerManager.Instance.GetPosition(bladeIndex);
