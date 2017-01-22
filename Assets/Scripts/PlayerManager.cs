@@ -6,7 +6,6 @@ public class PlayerManager : MonoBehaviour {
 	public GameObject BladePrefab_2;
     public float bladeLength;
 
-
     private GameObject blade1;
 	private GameObject blade2;
 
