@@ -2,6 +2,7 @@
 
 public class Shot : MonoBehaviour {
     private bool hit;
+    public float shotRange;
 
     public AudioClip[] _laserClashClips;
     public AudioSource _shotAudioSource;
@@ -30,7 +31,8 @@ public class Shot : MonoBehaviour {
                 prep = -prep;
             Vector3 enemyDirection = EnemyManager.Instance.FindEnemyDirection (transform.position, prep, swipeDirection);
 
-            enemyDirection += new Vector3 (Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+            enemyDirection += new Vector3 (
+                Random.Range(-shotRange, shotRange), Random.Range(-shotRange, shotRange), Random.Range(-shotRange, shotRange));
 
             Vector3 newVelocity = enemyDirection * Vector3.Magnitude(GetComponent<Rigidbody> ().velocity);
             GetComponent<Rigidbody> ().velocity = newVelocity;
