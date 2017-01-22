@@ -8,7 +8,6 @@ public class Blade : MonoBehaviour {
 
     public GameObject trianglePrefab;
 
-    private Queue bladeTriangles = new Queue();
     private Vector3 lastPosition;
     private Vector3 lastForward;
     private float length = 0;
@@ -35,23 +34,10 @@ public class Blade : MonoBehaviour {
         transform.position = _gameManager._viveControllerManager.GetPosition (bladeIndex);
         transform.forward = _gameManager._viveControllerManager.GetForward (bladeIndex);
 
-        popOutdatedBladeTriangles ();
-
         if (lastPosition != null && lastForward != null)
             pushNewBladeTriangles (lastPosition, lastForward, transform.position , transform.forward);
         lastPosition = transform.position;
         lastForward = transform.forward;
-    }
-
-    private void popOutdatedBladeTriangles(){
-        while (bladeTriangles.Count > 0) {
-            GameObject triangle = (GameObject)bladeTriangles.Peek ();
-            if (Time.time - triangle.GetComponent<Triangle> ().startTime < blockStayTime)
-                break;
-            
-            Destroy((GameObject)bladeTriangles.Dequeue ());
-            Destroy((GameObject)bladeTriangles.Dequeue ());
-        }
     }
 
     private void pushNewBladeTriangles(Vector3 a, Vector3 aDirection, Vector3 b, Vector3 bDirection){
@@ -59,10 +45,8 @@ public class Blade : MonoBehaviour {
         Vector3 bb = b + bDirection * length;
 
         GameObject t1 = Instantiate (trianglePrefab);
-        t1.GetComponent<Triangle>().Initialize(new Vector3[]{a, aa, bb});
+        t1.GetComponent<Triangle>().Initialize(new Vector3[]{a, aa, bb}, blockStayTime);
         GameObject t2 = Instantiate (trianglePrefab);
-        t2.GetComponent<Triangle>().Initialize(new Vector3[]{a, bb, b});
-        bladeTriangles.Enqueue (t1);
-        bladeTriangles.Enqueue (t2);
+        t2.GetComponent<Triangle>().Initialize(new Vector3[]{a, bb, b}, blockStayTime);
     }
 }
