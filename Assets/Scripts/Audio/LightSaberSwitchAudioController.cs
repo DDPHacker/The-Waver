@@ -16,7 +16,7 @@ public class LightSaberSwitchAudioController : MonoBehaviour {
         if (!_lightSaberAudioSource.isPlaying)
             PlayLightSaberSound();
         _lightSaberAudioSource.volume = Mathf.Clamp(volume, 0.0f, 1.0f);
-        _lightSaberAudioSource.pitch = Mathf.Clamp(volume * 3.0f, 1.0f, 3.0f);
+        _lightSaberAudioSource.pitch = Mathf.Clamp(0.8f + volume, 1.0f, 2.0f);
     }
 
     public bool ShouldPlayLightSaberSound() {

@@ -40,7 +40,7 @@ public class Shot : MonoBehaviour {
             hit = true;
         }
 
-        if (other.gameObject.tag == "enemy" && hit) {
+        if (other.gameObject.tag == "Enemy" && hit) {
             Destroy (this.gameObject);
             Destroy (other.gameObject);
         }
