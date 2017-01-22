@@ -31,9 +31,8 @@ public class Blade : MonoBehaviour {
         transform.position = ViveControllerManager.Instance.GetPosition(bladeIndex);
         transform.forward = ViveControllerManager.Instance.GetForward(bladeIndex);
 
-        popOutdatedBladeTriangles();
-
-        pushNewBladeTriangles(lastPosition, lastForward, transform.position , transform.forward);
+        if (GetComponentInChildren<lightssaber>().on_blade)
+            pushNewBladeTriangles(lastPosition, lastForward, transform.position , transform.forward);
 
         lastPosition = transform.position;
         lastForward = transform.forward;
