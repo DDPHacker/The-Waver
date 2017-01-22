@@ -30,4 +30,10 @@ public class Shot : MonoBehaviour {
             hit = true;
         }
     }
+
+    void Update () {
+        if (Vector3.Magnitude (transform.position) > 50) {
+            Destroy (this.gameObject);
+        }
+    }
 }
