@@ -16,7 +16,6 @@ public class EnemyController : MonoBehaviour {
         Vector3 relativePos;
         Quaternion shotRotation;
         GameObject newShot;
-        Vector3 velocity;
 
         yield return new WaitForSeconds (1);
         //while (true) {

@@ -48,6 +48,6 @@ public class Blade : MonoBehaviour {
         GameObject t1 = Instantiate(trianglePrefab);
         t1.GetComponent<Triangle>().Initialize(new Vector3[]{a, aa, bb}, blockStayTime);
         GameObject t2 = Instantiate(trianglePrefab);
-        t2.GetComponent<Triangle>().Initialize(new Vector3[]{a, bb, b}, blockStayTime);
+        t2.GetComponent<Triangle>().Initialize(new Vector3[]{bb, a, b}, blockStayTime);
     }
 }
