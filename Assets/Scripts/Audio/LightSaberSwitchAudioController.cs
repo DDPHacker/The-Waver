@@ -16,6 +16,7 @@ public class LightSaberSwitchAudioController : MonoBehaviour {
         if (!_lightSaberAudioSource.isPlaying)
             PlayLightSaberSound();
         _lightSaberAudioSource.volume = Mathf.Clamp(volume, 0.0f, 1.0f);
+        _lightSaberAudioSource.pitch = Mathf.Clamp(volume * 3.0f, 1.0f, 3.0f);
     }
 
     public bool ShouldPlayLightSaberSound() {
@@ -42,6 +43,7 @@ public class LightSaberSwitchAudioController : MonoBehaviour {
         _lightSaberAudioSource.clip = _lightSaberOnClip;
         _lightSaberAudioSource.loop = false;
         _lightSaberAudioSource.volume = 1.0f;
+        _lightSaberAudioSource.pitch = 1.0f;
         _lightSaberAudioSource.Play();
     }
 
@@ -50,6 +52,7 @@ public class LightSaberSwitchAudioController : MonoBehaviour {
         _lightSaberAudioSource.clip = _lightSaberOffClip;
         _lightSaberAudioSource.loop = false;
         _lightSaberAudioSource.volume = 1.0f;
+        _lightSaberAudioSource.pitch = 1.0f;
         _lightSaberAudioSource.Play();
     }
 

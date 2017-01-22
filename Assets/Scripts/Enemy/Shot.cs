@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Shot : MonoBehaviour {
     private bool hit;
+
+    public AudioClip[] _laserClashClips;
+    public AudioSource _shotAudioSource;
 
     public void Initialize(Vector3 velocity){
         GetComponent<Rigidbody> ().velocity = velocity;
@@ -12,6 +13,10 @@ public class Shot : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "blade" && !hit) {
+            int index = Random.Range(0, _laserClashClips.Length);
+            _shotAudioSource.clip = _laserClashClips[index];
+            _shotAudioSource.Play();
+
             GameObject blade = other.gameObject;
             Vector3[] vertices = blade.GetComponent<MeshFilter> ().mesh.vertices;
             Vector3 mid1 = (vertices [1] + vertices [0]) / 2;

@@ -4,15 +4,83 @@
 		"selected_items":
 		[
 			[
+				"MA",
+				"Mathf\tMathf"
+			],
+			[
+				"mi",
+				"mid_2\tVector3"
+			],
+			[
+				"v",
+				"Vector3\tVector3"
+			],
+			[
+				"V",
+				"Vector3\tVector3"
+			],
+			[
+				"las",
+				"lastPosition\tVector3"
+			],
+			[
+				"_li",
+				"_lightSaberAudioSource\tAudioSource"
+			],
+			[
+				"tr",
+				"true\ttrue"
+			],
+			[
+				"sab",
+				"saberSwitchAudioController\tLightSaberSwitchAudioController"
+			],
+			[
+				"endpo",
+				"endPosExtendedPos\tVector3"
+			],
+			[
+				"lo",
+				"localPosition\tVector3 { get; set; }"
+			],
+			[
+				"clam",
+				"Clamp(float value, float min, float max)\tfloat"
+			],
+			[
+				"_ligh",
+				"_lightSaberOffClip\tAudioClip"
+			],
+			[
+				"_l",
+				"_lightSaberAudioSource\tAudioSource"
+			],
+			[
+				"Pl",
+				"PlayLightSaberSwitchOn()\tvoid"
+			],
+			[
+				"pla",
+				"Play()\tvoid"
+			],
+			[
+				"Vect",
+				"Vector3\tVector3"
+			],
+			[
+				"U",
+				"UnityEngine\tUnityEngine"
+			],
+			[
+				"Vi",
+				"ViveManager\tViveManager"
+			],
+			[
 				"Gam",
 				"GameObject\tGameObject"
 			],
 			[
 				"Viv",
-				"ViveControllerManager\tViveControllerManager"
-			],
-			[
-				"V",
 				"ViveControllerManager\tViveControllerManager"
 			],
 			[
@@ -22,10 +90,6 @@
 			[
 				"t",
 				"ToEulerAngles()\tVector3"
-			],
-			[
-				"lo",
-				"localEulerAngles\tVector3 { get; set; }"
 			],
 			[
 				"tra",
@@ -88,10 +152,6 @@
 				"gameState\tint"
 			],
 			[
-				"Vi",
-				"ViveControllerManager\tViveControllerManager"
-			],
-			[
 				"Pla",
 				"PlayerManager\tPlayerManager"
 			],
@@ -103,6 +163,42 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Assets/Scripts/Player/Blade.cs",
+			"settings":
+			{
+				"buffer_size": 2697,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/GameManager.cs",
+			"settings":
+			{
+				"buffer_size": 2418,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/Audio/LightSaberSwitchAudioController.cs",
+			"settings":
+			{
+				"buffer_size": 1849,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/Audio/AudioManager.cs",
+			"settings":
+			{
+				"buffer_size": 661,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -163,13 +259,25 @@
 	[
 		"/Users/armour/Desktop/The-Waver",
 		"/Users/armour/Desktop/The-Waver/Assets",
+		"/Users/armour/Desktop/The-Waver/Assets/Materials",
+		"/Users/armour/Desktop/The-Waver/Assets/Materials/Blade",
+		"/Users/armour/Desktop/The-Waver/Assets/Prefabs/Player",
 		"/Users/armour/Desktop/The-Waver/Assets/Scripts",
-		"/Users/armour/Desktop/The-Waver/Assets/Scripts/player",
-		"/Users/armour/Desktop/The-Waver/Assets/SteamVR/Scripts"
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/Audio",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/Enemy",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/Input",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/Player"
 	],
 	"file_history":
 	[
+		"/Users/armour/Desktop/The-Waver/Assets/Materials/Blade/lightssaber.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/Audio/LightSaberSwitchAudioController.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/Player/Triangle.cs",
 		"/Users/armour/Desktop/The-Waver/Assets/Scripts/GameManager.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/Audio/AudioManager.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/Enemy/EnemyManager.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/Input/ViveController.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/Input/ViveManager.cs",
 		"/Users/armour/Desktop/The-Waver/Assets/Scripts/AudioManager.cs",
 		"/Users/armour/Desktop/The-Waver/Assets/Scripts/ViveControllerInput.cs",
 		"/Users/armour/Desktop/The-Waver/Assets/Scripts/ViveControllerManager.cs",
@@ -223,18 +331,170 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Assets/Scripts/Player/Blade.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2697,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								563,
+								563
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"1189,1214": "'LightSaberSwitchAudioController' does not contain a definition for 'PlaySwitchLightSaberSound'",
+								"1216,1217": "'LightSaberSwitchAudioController' does not contain a definition for 'PlaySwitchLightSaberSound'",
+								"1983,2008": "'LightSaberSwitchAudioController' does not contain a definition for 'ShouldPlayLightSaberSound'",
+								"2010,2011": "Error: Boolean",
+								"2053,2072": "'LightSaberSwitchAudioController' does not contain a definition for 'SetLightSaberVolume'",
+								"2106,2107": "'LightSaberSwitchAudioController' does not contain a definition for 'SetLightSaberVolume'",
+								"401,432": "'LightSaberSwitchAudioController' is not a known identifier",
+								"923,954": "'LightSaberSwitchAudioController' is not a known identifier",
+								"957,958": "Cannot convert from ? to [UnknownType LightSaberSwitchAudioController]"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/Scripts/GameManager.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2418,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2104,
+								2104
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"1312,1319": "Use 'var' keyword",
+								"1365,1372": "Use 'var' keyword",
+								"1419,1426": "Use 'var' keyword",
+								"723,734": "Parameter can be IComparable",
+								"946,959": "Method 'InitGameState' can be made static.",
+								"964,973": "Parameter can be IComparable"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Assets/Scripts/Audio/LightSaberSwitchAudioController.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1849,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								965,
+								965
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"617,618": "Cannot convert from System.Double to System.Single",
+								"631,632": "Invocation error: ArgumentTypeMismatch"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/Scripts/Audio/AudioManager.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 661,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								167,
+								167
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"547,553": "Method 'Update' has the same with 'Start'",
+								"643,647": "Parameter 'clip' is never used"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 50.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 34.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -284,6 +544,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"game",
+				"Assets/Scripts/GameManager.cs"
+			],
 			[
 				"inputcs",
 				"Assets/Scripts/ViveControllerInput.cs"
