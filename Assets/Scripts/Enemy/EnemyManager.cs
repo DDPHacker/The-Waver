@@ -47,7 +47,6 @@ public class EnemyManager : MonoBehaviour {
         Quaternion enemyRotation;
         int signX;
         int signZ;
-        float height;
 
         yield return new WaitForSeconds (1 + 2 * Random.value);
 
@@ -62,26 +61,10 @@ public class EnemyManager : MonoBehaviour {
             if (Random.value > 0.5) signZ = -1;
             else signZ = 1;
 
-            if (Random.value > 0.7) { //secondfloor
-                height = floor.y;
-                if (Random.value > 0.5) {
-                    enemyPos = new Vector3 (
-                        signX * outside.x,
-                        height,
-                        signZ * (Random.value * (outside.y - inside.y) + inside.y));
-                } else {
-                    enemyPos = new Vector3  (
-                        signX*(Random.value*(outside.x-inside.x) + inside.x),
-                        height,
-                        signZ*outside.y);
-                }
-            } else {
-                height = floor.x;
-                enemyPos = new Vector3  (
-                    signX*(Random.value*(outside.x-inside.x) + inside.x),
-                    height,
-                    signZ*(Random.value*(outside.y-inside.y) + inside.y));
-            }
+            enemyPos = new Vector3  (
+                signX*(Random.value*(outside.x-inside.x) + inside.x),
+                Random.value * (floor.y - floor.x) + floor.x,
+                signZ*(Random.value*(outside.y-inside.y) + inside.y));
 
             relativePos = playerPos - enemyPos;
             enemyRotation = Quaternion.LookRotation (relativePos);
