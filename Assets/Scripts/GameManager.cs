@@ -11,8 +11,7 @@ public class GameManager : MonoBehaviour {
 
     [HideInInspector]
     public int _gameState;
-
-    public AudioManager _audioManager;
+	public AudioManager _audioManager;
     public PlayerManager _playerManager;
     public EnemyManager _enemyManager;
     public ViveControllerManager _viveControllerManager;
