@@ -7,11 +7,11 @@ public class Shot : MonoBehaviour {
 
     public void Initialize(Vector3 velocity){
         GetComponent<Rigidbody> ().velocity = velocity;
-        GetComponent<Rigidbody> ().detectCollisions = false;
         hit = false;
     }
 
-    void onTriggerEnter(Collider other) {
+    void OnTriggerEnter(Collider other) {
+        Debug.LogError(other.gameObject.tag);
         if (other.gameObject.tag == "blade" && !hit) {
             GameObject blade = other.gameObject;
             Vector3[] vertices = blade.GetComponent<MeshFilter> ().mesh.vertices;
@@ -27,6 +27,7 @@ public class Shot : MonoBehaviour {
             Vector3 newVelocity = Random.value * swipeDirection + Random.value * prep
                                   + (Random.value * 2 - 1) * Vector3.Cross (swipeDirection, prep).normalized;
             GetComponent<Rigidbody> ().velocity = newVelocity;
+            GetComponent<Rigidbody>().rotation = Quaternion.LookRotation(newVelocity);
             hit = true;
         }
     }
