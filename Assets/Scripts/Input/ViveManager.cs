@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class ViveControllerManager : MonoBehaviour {
+public class ViveManager : MonoBehaviour {
 
-    public ViveControllerInput[] _viveControllers;
+    public ViveController[] _viveControllers;
 
-    public static ViveControllerManager _instance;
+    public static ViveManager _instance;
 
-    public static ViveControllerManager Instance {
+    public static ViveManager Instance {
         get { return _instance; }
     }
 
@@ -31,7 +31,7 @@ public class ViveControllerManager : MonoBehaviour {
 
     public bool GetTrigger(int index = -1) {
         if (index == -1) {
-            foreach (ViveControllerInput _viveController in _viveControllers) {
+            foreach (ViveController _viveController in _viveControllers) {
                 if (_viveController.GetViveTrigger()) {
                     return true;
                 }
@@ -43,7 +43,7 @@ public class ViveControllerManager : MonoBehaviour {
 
     public bool GetTriggerDown(int index = -1) {
         if (index == -1) {
-            foreach (ViveControllerInput _viveController in _viveControllers) {
+            foreach (ViveController _viveController in _viveControllers) {
                 if (_viveController.GetViveTriggerDown()) {
                     return true;
                 }
@@ -55,7 +55,7 @@ public class ViveControllerManager : MonoBehaviour {
 
     public bool GetTriggerUp(int index = -1) {
         if (index == -1) {
-            foreach (ViveControllerInput _viveController in _viveControllers) {
+            foreach (ViveController _viveController in _viveControllers) {
                 if (_viveController.GetViveTriggerUp()) {
                     return true;
                 }
@@ -67,7 +67,7 @@ public class ViveControllerManager : MonoBehaviour {
 
     public bool GetGrip(int index = -1) {
         if (index == -1) {
-            foreach (ViveControllerInput _viveController in _viveControllers) {
+            foreach (ViveController _viveController in _viveControllers) {
                 if (_viveController.GetViveGrip()) {
                     return true;
                 }
@@ -79,7 +79,7 @@ public class ViveControllerManager : MonoBehaviour {
 
     public bool GetGripDown(int index = -1) {
         if (index == -1) {
-            foreach (ViveControllerInput _viveController in _viveControllers) {
+            foreach (ViveController _viveController in _viveControllers) {
                 if (_viveController.GetViveGripDown()) {
                     return true;
                 }
@@ -91,7 +91,7 @@ public class ViveControllerManager : MonoBehaviour {
 
     public bool GetGripUp(int index = -1) {
         if (index == -1) {
-            foreach (ViveControllerInput _viveController in _viveControllers) {
+            foreach (ViveController _viveController in _viveControllers) {
                 if (_viveController.GetViveGripUp()) {
                     return true;
                 }

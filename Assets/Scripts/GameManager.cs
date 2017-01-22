@@ -33,26 +33,26 @@ public class GameManager : MonoBehaviour {
 
     public void SetGameState(int newGameSate) {
         _gameState = newGameSate;
+        InitGameState(_gameState);
     }
 
     public void MoveToNextGameState() {
-        _gameState = (_gameState + 1) % GAME_STATE.GAME_STATE_SIZE;
-        InitGameState(_gameState);
+        SetGameState((_gameState + 1) % GAME_STATE.GAME_STATE_SIZE);
     }
 
     public void InitGameState(int gameState) {
         switch (gameState) {
             case GAME_STATE.GAME_STATE_READY:
-                // AudioManager.PlayAudio("READY_BGM");
+                // AudioManager.Instance.PlayAudio("READY_BGM");
                 // PlayerManager.InitPlayer();
                 break;
             case GAME_STATE.GAME_STATE_PLAY:
-                // AudioManager.PlayAudio("PLAY_BGM");
-                // EnemyManager.StartSpwan();
+                // AudioManager.Instance.PlayAudio("PLAY_BGM");
+                // EnemyManager.Instance.SpawnEnemy();
                 break;
             case GAME_STATE.GAME_STATE_DIE:
-                // AudioManager.PlayAudio("PLAY_DIE");
-                // EnemyManager.StopSpwan();
+                // AudioManager.Instance.PlayAudio("PLAY_DIE");
+                // EnemyManager.Instance.StopSpwan();
                 break;
             default:
                 Debug.LogError("Wrong Game State!");
@@ -64,9 +64,8 @@ public class GameManager : MonoBehaviour {
     void Update() {
         switch (_gameState) {
             case GAME_STATE.GAME_STATE_READY:
-                if (ViveControllerManager.Instance.GetTrigger()) {
-                    // PlayerManager.ShowSword();
-                    Debug.Log("Show sword!!!!!!!!!");
+                if (ViveManager.Instance.GetTrigger()) {
+                    MoveToNextGameState();
                 }
                 break;
             case GAME_STATE.GAME_STATE_PLAY:

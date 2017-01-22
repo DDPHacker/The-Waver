@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ViveControllerInput : MonoBehaviour {
+public class ViveController : MonoBehaviour {
 
     private SteamVR_TrackedObject trackedObj;
 

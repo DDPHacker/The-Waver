@@ -19,20 +19,20 @@ public class Blade : MonoBehaviour {
     }
 
     void Start() {
-        lastPosition = ViveControllerManager.Instance.GetPosition(bladeIndex);
-        lastForward = ViveControllerManager.Instance.GetForward(bladeIndex);
+        lastPosition = ViveManager.Instance.GetPosition(bladeIndex);
+        lastForward = ViveManager.Instance.GetForward(bladeIndex);
     }
 
     void Update() {
-        if (ViveControllerManager.Instance.GetTriggerDown(bladeIndex)) {
+        if (ViveManager.Instance.GetTriggerDown(bladeIndex)) {
             lightssaber[] sabers = GetComponentsInChildren<lightssaber>();
             foreach (lightssaber saber in sabers) {
                 saber.ShowBlade();
             }
         }
 
-        transform.position = ViveControllerManager.Instance.GetPosition(bladeIndex);
-        transform.forward = ViveControllerManager.Instance.GetForward(bladeIndex);
+        transform.position = ViveManager.Instance.GetPosition(bladeIndex);
+        transform.forward = ViveManager.Instance.GetForward(bladeIndex);
 
         if (GetComponentInChildren<lightssaber>().on_blade)
             pushNewBladeTriangles(lastPosition, lastForward, transform.position , transform.forward);

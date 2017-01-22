@@ -3,19 +3,106 @@
 	{
 		"selected_items":
 		[
+			[
+				"Gam",
+				"GameObject\tGameObject"
+			],
+			[
+				"Viv",
+				"ViveControllerManager\tViveControllerManager"
+			],
+			[
+				"V",
+				"ViveControllerManager\tViveControllerManager"
+			],
+			[
+				"T",
+				"ToEulerAngles()\tVector3"
+			],
+			[
+				"t",
+				"ToEulerAngles()\tVector3"
+			],
+			[
+				"lo",
+				"localEulerAngles\tVector3 { get; set; }"
+			],
+			[
+				"tra",
+				"transform\tTransform { get; }"
+			],
+			[
+				"Veco",
+				"Vector3()\tVector3()"
+			],
+			[
+				"Get",
+				"GetViveAxis()\tVector2"
+			],
+			[
+				"Ve",
+				"Vector3\tVector3"
+			],
+			[
+				"Contro",
+				"ControllerAccessiable()\tbool"
+			],
+			[
+				"Con",
+				"ControllerAccessiable()\tbool"
+			],
+			[
+				"GetViveGr",
+				"GetViveGripUp()\tbool"
+			],
+			[
+				"GetGr",
+				"GetViveGripDown()\tbool"
+			],
+			[
+				"G",
+				"GAME_STATE_SIZE\tint"
+			],
+			[
+				"get",
+				"GetTrigger(int index)\tbool"
+			],
+			[
+				"gam",
+				"_gameState\tint"
+			],
+			[
+				"new",
+				"newGameSate\tGAME_STATE"
+			],
+			[
+				"GA",
+				"GAME_STATE_SHOW_SWORD\tGAME_STATE"
+			],
+			[
+				"Ga",
+				"GAME_STATE_PLAY\tGAME_STATE"
+			],
+			[
+				"game",
+				"gameState\tint"
+			],
+			[
+				"Vi",
+				"ViveControllerManager\tViveControllerManager"
+			],
+			[
+				"Pla",
+				"PlayerManager\tPlayerManager"
+			],
+			[
+				"Findobj",
+				"FindGameObjectWithTag(string tag)\tGameObject"
+			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "Assets/Scripts/ViveControllerInput.cs",
-			"settings":
-			{
-				"buffer_size": 1015,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -33,11 +120,19 @@
 				":w - Save"
 			],
 			[
-				"in",
-				"Package Control: Install Package"
+				":W",
+				":w - Save"
+			],
+			[
+				":",
+				":w - Save"
 			],
 			[
 				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
 				"Package Control: Install Package"
 			],
 			[
@@ -68,22 +163,38 @@
 	[
 		"/Users/armour/Desktop/The-Waver",
 		"/Users/armour/Desktop/The-Waver/Assets",
-		"/Users/armour/Desktop/The-Waver/Assets/Scripts"
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/player",
+		"/Users/armour/Desktop/The-Waver/Assets/SteamVR/Scripts"
 	],
 	"file_history":
 	[
-		"/Users/armour/Desktop/The-Waver/The-Waver.sublime-project",
-		"/Users/armour/Desktop/The-Waver/.gitignore"
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/GameManager.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/AudioManager.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/ViveControllerInput.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/ViveControllerManager.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/PlayerManager.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/EnemyController.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/EnemyManager.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/player/Blade.cs",
+		"/Users/armour/Desktop/The-Waver/Assets/Scripts/player/Triangle.cs",
+		"/Users/armour/Library/Application Support/Sublime Text 3/Packages/User/OmniSharpSublime.sublime-settings",
+		"/Users/armour/Desktop/The-Waver/Assets/SteamVR/Scripts/SteamVR_Controller.cs",
+		"/Users/armour/Desktop/The-Waver/.gitignore",
+		"/Users/armour/Desktop/The-Waver/The-Waver.sublime-project"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"<current file>",
+			".",
+			""
 		]
 	},
 	"find_state":
@@ -91,6 +202,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"showBlade",
+			"GetViveOrientation",
+			"index"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -98,6 +212,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"idx"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -108,44 +223,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Assets/Scripts/ViveControllerInput.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1015,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								245,
-								245
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -182,11 +267,15 @@
 	{
 		"height": 0.0
 	},
+	"output.variable_get":
+	{
+		"height": 202.0
+	},
 	"pinned_build_system": "",
 	"project": "The-Waver.sublime-project",
 	"replace":
 	{
-		"height": 0.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -195,6 +284,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"inputcs",
+				"Assets/Scripts/ViveControllerInput.cs"
+			]
 		],
 		"width": 0.0
 	},
