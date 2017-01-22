@@ -103,7 +103,8 @@ public class EnemyManager : MonoBehaviour {
                     enemyDirections.Add (enemyDirection);
             }
         }
-        return enemyDirections[(int)(Random.value * (enemyDirections.Count - 0.000001))].normalized;
+        if (enemyDirections.Count > 0)
+            return enemyDirections[(int)(Random.value * (enemyDirections.Count - 0.000001))].normalized;
         Vector3 ranPosition = Random.value * direction1 + Random.value * direction2
             + (Random.value * 2 - 1) * Vector3.Cross (direction1, direction2).normalized;
         return ranPosition.normalized;

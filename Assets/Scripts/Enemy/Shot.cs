@@ -34,7 +34,7 @@ public class Shot : MonoBehaviour {
             enemyDirection += new Vector3 (
                 Random.Range(-shotRange, shotRange), Random.Range(-shotRange, shotRange), Random.Range(-shotRange, shotRange));
 
-            Vector3 newVelocity = enemyDirection * Vector3.Magnitude(GetComponent<Rigidbody> ().velocity);
+            Vector3 newVelocity = enemyDirection * Vector3.Magnitude(GetComponent<Rigidbody> ().velocity) * 3;
             GetComponent<Rigidbody> ().velocity = newVelocity;
             GetComponent<Rigidbody>().rotation = Quaternion.LookRotation(newVelocity);
             hit = true;
