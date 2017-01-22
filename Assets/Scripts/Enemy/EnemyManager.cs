@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour {
 
@@ -7,6 +8,7 @@ public class EnemyManager : MonoBehaviour {
     public int enemyCounter;
     private int enemyNum;
     private IEnumerator spawn;
+    private List<Vector3> enemiesPos = new List<Vector3> ();
 
     public static EnemyManager _instance;
 
@@ -24,16 +26,10 @@ public class EnemyManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         enemyNum = 0;
-        Random.InitState ((int)(Time.time*100));
-
-        Vector3 playerPos = new Vector3 (0, 0, 0);
-        Vector2 inside = new Vector2 (3, 3);
-        Vector2 outside = new Vector2 (7, 7);
-        Vector2 floor = new Vector2 (0, 3);
-        StartSpawn (playerPos, inside, outside, floor);
+        Random.InitState (System.DateTime.UtcNow.Millisecond);
     }
 
-    void StartSpawn (Vector3 playerPos, Vector2 inside, Vector2 outside, Vector2 floor) {
+    public void StartSpawn (Vector3 playerPos, Vector2 inside, Vector2 outside, Vector2 floor) {
         spawn = Spawn (playerPos, inside, outside, floor);
         StartCoroutine(spawn);
     }
@@ -41,6 +37,7 @@ public class EnemyManager : MonoBehaviour {
     IEnumerator Spawn(Vector3 playerPos, Vector2 inside, Vector2 outside, Vector2 floor) {
         Vector3 enemyPos;
         Vector3 relativePos;
+		GameObject newEnemy;
         Quaternion enemyRotation;
         int signX;
         int signZ;
@@ -84,13 +81,28 @@ public class EnemyManager : MonoBehaviour {
             relativePos.y = 0;
             enemyRotation = Quaternion.LookRotation (relativePos);
 
-            Instantiate(enemy, enemyPos, enemyRotation,
+            newEnemy = Instantiate(enemy, enemyPos, enemyRotation,
                 GameObject.FindGameObjectWithTag("Enemies").GetComponent<Transform>());
+            newEnemy.GetComponent<EnemyController> ().Initialize (playerPos);
+            enemiesPos.Add (enemyPos);
             enemyNum++;
 
             yield return new WaitForSeconds (2 + 2 * Random.value);
         }
     }
+
+    public Vector3 FindEnemy (Vector3 position, Vector3 direction1, Vector3 direction2) {
+        Vector3 enemyDirection;
+        foreach(Vector3 enemyPos in enemiesPos) {
+            enemyDirection = enemyPos - position;
+            if (Vector3.Dot (enemyDirection, direction1) >= 0 &&
+               Vector3.Dot (enemyDirection, direction2) >= 0) {
+                if (Vector3.Dot (Vector3.Cross (enemyDirection, direction1), Vector3.Cross (enemyDirection, direction2)) <= 0)
+                    return enemyPos;
+            }
+        }
+        return position;
+	}
 
     void DestroyEnemies () {
         Transform enemies = GameObject.FindGameObjectWithTag ("Enemies").GetComponent<Transform> ();

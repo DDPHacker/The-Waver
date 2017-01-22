@@ -6,9 +6,18 @@ public class EnemyController : MonoBehaviour {
 
     public GameObject shot;
     public float speed = 1f;
+    public float randomScale = 0.5f;
 
-    void Start () {
-        Vector3 playerPos = new Vector3 (0, 0, 0);
+    //void Start () {
+    //    Vector3 playerPos = new Vector3 (0, 0, 0);
+    //    StartCoroutine (Shoot (playerPos));
+    //}
+
+    public void Initialize (Vector3 playerPos) {
+        StartShoot (playerPos);
+    }
+
+    public void StartShoot (Vector3 playerPos) {
         StartCoroutine (Shoot (playerPos));
     }
 
@@ -16,15 +25,20 @@ public class EnemyController : MonoBehaviour {
         Vector3 relativePos;
         Quaternion shotRotation;
         GameObject newShot;
+        Vector3 randomPos;
 
         yield return new WaitForSeconds (1);
-        //while (true) {
-            relativePos = playerPos - transform.position;
+        while (true) {
+            randomPos = playerPos + new Vector3(
+                Random.Range(-randomScale, randomScale),
+                Random.Range(-2*randomScale, 0),
+                Random.Range(-randomScale, randomScale));
+            relativePos = randomPos - transform.position;
             shotRotation = Quaternion.LookRotation (relativePos);
             newShot = Instantiate (shot, transform.position, shotRotation,
-            GameObject.FindGameObjectWithTag("Shots").GetComponent<Transform>());
-            newShot.GetComponent<Shot> ().Initialize ((-newShot.transform.position).normalized);
-        //  yield return new WaitForSeconds (2);
-        //}
+                GameObject.FindGameObjectWithTag("Shots").GetComponent<Transform>());
+            newShot.GetComponent<Shot> ().Initialize (-(newShot.transform.position - randomPos).normalized * speed);
+          yield return new WaitForSeconds (2);
+        }
     }
 }
