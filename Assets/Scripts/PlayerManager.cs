@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour {
     void Start() {
         _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         blade1 = Instantiate (BladePrefab);
-        blade1.GetComponent<Blade> ().Initialize (0, 1, bladeLength);
+        blade1.GetComponent<Blade> ().Initialize (0, bladeLength, 0.2f);
     }
 
     void Update() {
