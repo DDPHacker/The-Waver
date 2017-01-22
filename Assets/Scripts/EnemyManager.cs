@@ -3,34 +3,29 @@ using System.Collections;
 
 public class EnemyManager : MonoBehaviour {
 
+    private GameManager _gameManager;
 	public GameObject enemy;
 	private IEnumerator spawn;
 	private static int enemyNum;
-	private static int enemyCounter = 7;
-
-    public static EnemyManager _instance;
-
-    public static EnemyManager Instance {
-        get { return _instance; }
-    }
+	private static int enemyCounter = 3;
 
     // Awake
     void Awake() {
-        if (_instance == null) {
-            _instance = this;
-        }
+
     }
 
     // Use this for initialization
-    void Start() {
+    void Start () {
+        _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+
 		enemyNum = 0;
 		Random.InitState ((int)(Time.time*100));
 
-		//Vector3 playerPos = new Vector3 (0, 0, 0);
-		//Vector2 inside = new Vector2 (3, 3);
-		//Vector2 outside = new Vector2 (7, 7);
-		//Vector2 floor = new Vector2 (0, 3);
-		//StartSpawn (playerPos, inside, outside, floor);
+		Vector3 playerPos = new Vector3 (0, 0, 0);
+		Vector2 inside = new Vector2 (3, 3);
+		Vector2 outside = new Vector2 (7, 7);
+		Vector2 floor = new Vector2 (0, 3);
+		StartSpawn (playerPos, inside, outside, floor);
     }
 
 	void StartSpawn (Vector3 playerPos, Vector2 inside, Vector2 outside, Vector2 floor) {
@@ -41,6 +36,7 @@ public class EnemyManager : MonoBehaviour {
 	IEnumerator Spawn(Vector3 playerPos, Vector2 inside, Vector2 outside, Vector2 floor) {
 		Vector3 enemyPos;
 		Vector3 relativePos;
+		Quaternion enemyRotation;
 		int signX;
 		int signZ;
 		float height;
@@ -48,7 +44,6 @@ public class EnemyManager : MonoBehaviour {
 		yield return new WaitForSeconds (3 + 2 * Random.value);
 
 		while (true) {
-		//while (enemyNum < enemyCounter) {
 			if (enemyNum >= enemyCounter) {
 				yield return new WaitForSeconds (2 + 2 * Random.value);
 				continue;
@@ -82,7 +77,7 @@ public class EnemyManager : MonoBehaviour {
 
 			relativePos = playerPos - enemyPos;
 			relativePos.y = 0;
-			Quaternion enemyRotation = Quaternion.LookRotation (relativePos);
+			enemyRotation = Quaternion.LookRotation (relativePos);
 
 			Instantiate(enemy, enemyPos, enemyRotation,
 				GameObject.FindGameObjectWithTag("Enemies").GetComponent<Transform>());
@@ -90,9 +85,6 @@ public class EnemyManager : MonoBehaviour {
 
 			yield return new WaitForSeconds (2 + 2 * Random.value);
 		}
-
-		//yield return new WaitForSeconds (3);
-		//DestroyEnemies ();
 	}
 
 	void DestroyEnemies () {
