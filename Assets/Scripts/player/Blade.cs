@@ -34,7 +34,7 @@ public class Blade : MonoBehaviour {
         transform.position = _gameManager._viveControllerManager.GetPosition (bladeIndex);
         transform.forward = _gameManager._viveControllerManager.GetForward (bladeIndex);
 
-        if (lastPosition != null && lastForward != null)
+        if (lastPosition != null && lastForward != null && GetComponentInChildren<lightssaber>().on_blade)
             pushNewBladeTriangles (lastPosition, lastForward, transform.position , transform.forward);
         lastPosition = transform.position;
         lastForward = transform.forward;
