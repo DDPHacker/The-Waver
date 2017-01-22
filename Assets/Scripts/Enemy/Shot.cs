@@ -30,6 +30,8 @@ public class Shot : MonoBehaviour {
                 prep = -prep;
             Vector3 enemyDirection = EnemyManager.Instance.FindEnemyDirection (transform.position, prep, swipeDirection);
 
+            enemyDirection += new Vector3 (Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+
             Vector3 newVelocity = enemyDirection * Vector3.Magnitude(GetComponent<Rigidbody> ().velocity);
             GetComponent<Rigidbody> ().velocity = newVelocity;
             GetComponent<Rigidbody>().rotation = Quaternion.LookRotation(newVelocity);
