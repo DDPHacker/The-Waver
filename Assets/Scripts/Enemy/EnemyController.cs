@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour {
 			shotRotation = Quaternion.LookRotation (relativePos);
 			newShot = Instantiate (shot, transform.position, shotRotation,
 				GameObject.FindGameObjectWithTag("Shots").GetComponent<Transform>());
-		newShot.GetComponent<Shoot> ().Initialize ((-newShot.transform.position).normalized);
+		newShot.GetComponent<Shot> ().Initialize ((-newShot.transform.position).normalized);
 		//	yield return new WaitForSeconds (2);
 		//}
 	}

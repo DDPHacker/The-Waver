@@ -3,21 +3,26 @@ using System.Collections;
 
 public class EnemyManager : MonoBehaviour {
 
-    private GameManager _gameManager;
 	public GameObject enemy;
+	public int enemyCounter;
+	private int enemyNum;
 	private IEnumerator spawn;
-	private static int enemyNum;
-	private static int enemyCounter = 3;
+
+    public static EnemyManager _instance;
+
+    public static EnemyManager Instance {
+        get { return _instance; }
+    }
 
     // Awake
     void Awake() {
-
+        if (_instance == null) {
+            _instance = this;
+        }
     }
 
     // Use this for initialization
     void Start () {
-        _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-
 		enemyNum = 0;
 		Random.InitState ((int)(Time.time*100));
 
