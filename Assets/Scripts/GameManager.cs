@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public int _gameState;
 
+    public Vector2 inside;
+    public Vector2 outside;
+
     public static GameManager _instance;
 
     public static GameManager Instance {
@@ -47,8 +50,6 @@ public class GameManager : MonoBehaviour {
                 break;
             case GAME_STATE.GAME_STATE_PLAY:
                 // AudioManager.Instance.PlayAudio("PLAY_BGM");
-                Vector2 inside = new Vector2 (3, 3);
-                Vector2 outside = new Vector2 (7, 7);
                 Vector2 floor = new Vector2 (3, 6);
                 EnemyManager.Instance.StartSpawn(inside, outside, floor);
                 break;

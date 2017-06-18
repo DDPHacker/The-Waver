@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
 // Shader created with Shader Forge v1.26 
@@ -101,7 +103,7 @@ Shader "Shader Forge/Examples/Animated Vegetation" {
                 v.vertex.xyz += (_Defrom_txt_var.rgb*float3(o.uv0,0.0)*_Amplitude);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex );
+                o.pos = UnityObjectToClipPos(v.vertex );
                 UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
@@ -255,7 +257,7 @@ Shader "Shader Forge/Examples/Animated Vegetation" {
                 v.vertex.xyz += (_Defrom_txt_var.rgb*float3(o.uv0,0.0)*_Amplitude);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex );
+                o.pos = UnityObjectToClipPos(v.vertex );
                 UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
@@ -363,7 +365,7 @@ Shader "Shader Forge/Examples/Animated Vegetation" {
                 float4 _Defrom_txt_var = tex2Dlod(_Defrom_txt,float4(TRANSFORM_TEX(node_8305, _Defrom_txt),0.0,0));
                 v.vertex.xyz += (_Defrom_txt_var.rgb*float3(o.uv0,0.0)*_Amplitude);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex );
+                o.pos = UnityObjectToClipPos(v.vertex );
                 TRANSFER_SHADOW_CASTER(o)
                 return o;
             }
